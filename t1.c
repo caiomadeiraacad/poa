@@ -1,5 +1,5 @@
 /*
-Caio Madeira e Bruno
+Caio  e Bruno e Victor
 
 existe uma diferenca entre substring e subsequencia. Substring eh um bloco continuo
 de caracteres. ex; gato -> ga, at, ato. 
