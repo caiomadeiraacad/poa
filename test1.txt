@@ -1,0 +1,28 @@
+--- test 1 ---
+str 1: ABCBDAB
+str 2: BDCABA
+size of LCS: 4
+dp matrix iterations: 42
+Execution time: 7 microsecs
+
+--- test 2 - same str ---
+str 1: PROGRAMACAO
+str 2: PROGRAMACAO
+size of LCS: 11
+dp matrix iterations: 121
+Execution time: 1 microsecs
+
+--- test 3 - no lcs ---
+str 1: XYZ
+str 2: ABC
+size of LCS: 0
+dp matrix iterations: 9
+Execution time: 0 microsecs
+
+--- test 4 - dna sequence ---
+str 1: ACCGGTCGAGTGCGCGGAAGCCGGCCGAA
+str 2: GTCGTTCGGAATGCCGTTGCTCTGTAAA
+size of LCS: 20
+dp matrix iterations: 812
+Execution time: 8 microsecs
+
