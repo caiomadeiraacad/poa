@@ -1,0 +1,52 @@
+
+================================================================
+CASO: 1 - Casablanca x Portentoso
+  A = "Casablanca"  (10 caracteres)
+  B = "Portentoso"  (10 caracteres)
+----------------------------------------------------------------
+Forca bruta      : distancia = 10 | iteracoes = 12146179 | instrucoes = 97169427 | tempo = 78.163 ms
+FB c/ atalho     : distancia = 10 | iteracoes = 10100193 | instrucoes = 77434827 | tempo = 49.976 ms
+Prog. dinamica   : distancia = 10 | iteracoes = 100 | instrucoes = 1482 | tempo = 0.003 ms
+Conferencia: as duas deram a mesma distancia? SIM
+
+================================================================
+CASO: 2 - Madeira x Padeiro
+  A = "Madeira"  (7 caracteres)
+  B = "Padeiro"  (7 caracteres)
+----------------------------------------------------------------
+Forca bruta      : distancia = 2 | iteracoes = 72958 | instrucoes = 583659 | tempo = 0.437 ms
+FB c/ atalho     : distancia = 2 | iteracoes = 10257 | instrucoes = 78744 | tempo = 0.046 ms
+
+   Matriz da programacao dinamica (linhas = "Madeira", colunas = "Padeiro"):
+        _   P   a   d   e   i   r   o
+     _     0   1   2   3   4   5   6   7
+     M     1   1   2   3   4   5   6   7
+     a     2   2   1   2   3   4   5   6
+     d     3   3   2   1   2   3   4   5
+     e     4   4   3   2   1   2   3   4
+     i     5   5   4   3   2   1   2   3
+     r     6   6   5   4   3   2   1   2
+     a     7   7   6   5   4   3   2   2
+   A resposta e a celula do canto inferior direito.
+Prog. dinamica   : distancia = 2 | iteracoes = 49 | instrucoes = 744 | tempo = 0.007 ms
+Conferencia: as duas deram a mesma distancia? SIM
+
+================================================================
+CASO: 3 - Programacao x Dinamizacao
+  A = "Programacao"  (11 caracteres)
+  B = "Dinamizacao"  (11 caracteres)
+----------------------------------------------------------------
+Forca bruta      : distancia = 7 | iteracoes = 67570078 | instrucoes = 540560619 | tempo = 350.766 ms
+FB c/ atalho     : distancia = 7 | iteracoes = 56192 | instrucoes = 430804 | tempo = 0.232 ms
+Prog. dinamica   : distancia = 7 | iteracoes = 121 | instrucoes = 1784 | tempo = 0.004 ms
+Conferencia: as duas deram a mesma distancia? SIM
+
+================================================================
+CASO: 4 - Textos longos (Maven x Kernels)
+  A = "Maven, a Yiddish word meaning accumulator of knowledge, bega..."  (718 caracteres)
+  B = "This post is not about deep learning. But it could be might ..."  (317 caracteres)
+----------------------------------------------------------------
+Forca bruta      : NAO EXECUTADA - faria cerca de 10^346 chamadas
+Prog. dinamica   : distancia = 557 | iteracoes = 227606 | instrucoes = 3191027 | tempo = 2.842 ms
+
+Resultados gravados em resultados_distancia_edicao.csv

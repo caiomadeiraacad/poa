@@ -1,0 +1,13 @@
+caso;tamanho_A;tamanho_B;algoritmo;distancia;iteracoes;instrucoes;tempo_ms
+1 - Casablanca x Portentoso;10;10;Forca Bruta;10;12146179;97169427;78.163
+1 - Casablanca x Portentoso;10;10;Forca Bruta com atalho;10;10100193;77434827;49.976
+1 - Casablanca x Portentoso;10;10;Programacao Dinamica;10;100;1482;0.003
+2 - Madeira x Padeiro;7;7;Forca Bruta;2;72958;583659;0.437
+2 - Madeira x Padeiro;7;7;Forca Bruta com atalho;2;10257;78744;0.046
+2 - Madeira x Padeiro;7;7;Programacao Dinamica;2;49;744;0.007
+3 - Programacao x Dinamizacao;11;11;Forca Bruta;7;67570078;540560619;350.766
+3 - Programacao x Dinamizacao;11;11;Forca Bruta com atalho;7;56192;430804;0.232
+3 - Programacao x Dinamizacao;11;11;Programacao Dinamica;7;121;1784;0.004
+4 - Textos longos (Maven x Kernels);718;317;Forca Bruta;-1;0;0;-1;10^346
+4 - Textos longos (Maven x Kernels);718;317;Forca Bruta com atalho;-1;0;0;-1
+4 - Textos longos (Maven x Kernels);718;317;Programacao Dinamica;557;227606;3191027;2.842

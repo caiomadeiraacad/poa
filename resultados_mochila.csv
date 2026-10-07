@@ -1,0 +1,11 @@
+caso;quantidade_de_itens;capacidade;algoritmo;valor_maximo;iteracoes;instrucoes;tempo_ms
+A - exemplo da aula;4;10;Forca Bruta;90;23;147;0.001
+A - exemplo da aula;4;10;Programacao Dinamica;90;40;381;0.002
+B - 12 itens;12;60;Forca Bruta;423;3548;23540;0.033
+B - 12 itens;12;60;Programacao Dinamica;423;720;7227;0.014
+C - 20 itens;20;100;Forca Bruta;1072;605184;4021929;4.983
+C - 20 itens;20;100;Programacao Dinamica;1072;2000;20735;0.021
+D - 25 itens;25;150;Forca Bruta;1892;16004194;105586066;114.823
+D - 25 itens;25;150;Programacao Dinamica;1892;3750;39348;0.036
+E - 35 itens;35;200;Forca Bruta;-1;0;0;-1
+E - 35 itens;35;200;Programacao Dinamica;2614;7000;73192;0.079
