@@ -1,0 +1,21 @@
+n,scenario,m,result,comparisons,time_ms
+1000,melhor,4,true,4,0.000069
+1000,aleatorio,4,true,86,0.000240
+1000,pior (true),4,true,1000,0.001780
+1000,pior (false),2,false,1000,0.001284
+10000,melhor,4,true,4,0.000041
+10000,aleatorio,4,true,127,0.000431
+10000,pior (true),4,true,10000,0.012714
+10000,pior (false),2,false,10000,0.017734
+100000,melhor,4,true,4,0.000036
+100000,aleatorio,4,true,95,0.000274
+100000,pior (true),4,true,100000,0.180670
+100000,pior (false),2,false,100000,0.178474
+1000000,melhor,4,true,4,0.000037
+1000000,aleatorio,4,true,215,0.000619
+1000000,pior (true),4,true,1000000,1.850452
+1000000,pior (false),2,false,1000000,2.282764
+10000000,melhor,4,true,4,0.000048
+10000000,aleatorio,4,true,162,0.000511
+10000000,pior (true),4,true,10000000,22.756226
+10000000,pior (false),2,false,10000000,18.515157
