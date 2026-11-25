@@ -23,8 +23,9 @@ public class Benchmark {
 
     interface Task { Object run(); }
 
-    static Object sink; 
+    static Object sink; // evita que a JIT elimine o trabalho medido
 
+    /** Mediana (ms) de 'reps' execuções, após 'warm' execuções de aquecimento. */
     static double timeMs(Task t, int warm, int reps) {
         for (int i = 0; i < warm; i++) sink = t.run();
         double[] v = new double[reps];
@@ -50,6 +51,8 @@ public class Benchmark {
         for (int i = 0; i < TICKERS.length; i++) TICKERS[i] = "buy TICKER" + (char) ('A' + i % 26) + i;
     }
 
+    /** S aleatória sobre 50 tickers; S_line é criada com objetos String distintos
+     *  para que equals compare o conteúdo (e não apenas referências). */
     static String[] randomS(Random rnd, int n) {
         String[] s = new String[n];
         for (int i = 0; i < n; i++) s[i] = TICKERS[rnd.nextInt(TICKERS.length)];
@@ -58,6 +61,7 @@ public class Benchmark {
 
     static String fresh(String x) { return new String(x.toCharArray()); }
 
+    /** Escalonamento em n para três cenários: melhor, aleatório e pior caso. */
     static void problem1Scaling() throws IOException {
         PrintWriter w = csv("p1_scaling.csv", "n,scenario,m,result,comparisons,time_ms");
         Random rnd = new Random(1);
@@ -95,12 +99,14 @@ public class Benchmark {
         boolean r = td.hasTrend(S, Sl);
         long comps = td.comparisons;
         int reps = n >= 1_000_000 ? 15 : 101;
+        // Aquecimento proporcional: garante que a JIT compile o laço antes da medição.
         int warm = (int) Math.max(20, 50_000_000L / n);
         double ms = timeMs(() -> td.hasTrend(S, Sl), warm, reps);
         w.printf(java.util.Locale.US, "%d,%s,%d,%b,%d,%.6f%n", n, scen, Sl.length, r, comps, ms);
         System.out.printf(java.util.Locale.US, "P1 n=%d %-12s -> %b comps=%d %.4f ms%n", n, scen, r, comps, ms);
     }
 
+    /** Q consultas sobre a mesma S: guloso repetido vs índice pré-processado. */
     static void problem1Queries() throws IOException {
         PrintWriter w = csv("p1_queries.csv", "n,Q,m,method,total_ms,ops,positives");
         Random rnd = new Random(2);
@@ -109,6 +115,7 @@ public class Benchmark {
         for (int Q : new int[]{10, 100, 1000}) {
             String[][] queries = new String[Q][m];
             for (int q = 0; q < Q; q++) {
+                // Metade das consultas termina com um evento ausente (força varredura total).
                 for (int i = 0; i < m; i++) queries[q][i] = fresh(TICKERS[rnd.nextInt(TICKERS.length)]);
                 if (q % 2 == 1) queries[q][m - 1] = "buy ABSENT";
             }

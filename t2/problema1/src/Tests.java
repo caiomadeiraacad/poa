@@ -1,4 +1,3 @@
-/* Antonio Coelho, Caio Madeira e Bruno Coliselli */
 import java.util.Random;
 
 /**
@@ -50,10 +49,10 @@ public class Tests {
         check(td.hasTrend(S, S), "S_line == S");
         check(!td.hasTrend(new String[]{"a"}, new String[]{"a", "a"}), "m > n");
         check(td.hasTrend(new String[]{"a", null, "b"}, new String[]{null, "b"}), "eventos nulos");
-        // Strings iguais mas objetos diferentes
+        // Strings iguais mas objetos diferentes (garante uso de equals, não ==).
         check(td.hasTrend(new String[]{new String("x")}, new String[]{new String("x")}), "equals vs ==");
 
-        // Testes aleatórios contra
+        // Testes aleatórios contra o oráculo.
         Random rnd = new Random(42);
         for (int t = 0; t < 20000; t++) {
             int n = rnd.nextInt(30), m = rnd.nextInt(8), alpha = 1 + rnd.nextInt(4);

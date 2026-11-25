@@ -8,10 +8,13 @@ import java.util.Map;
  */
 public class TrendIndex {
 
+    /** evento -> posições (crescentes) onde ocorre em S */
     private final Map<String, int[]> positions = new HashMap<>();
 
+    /** Contador de passos de busca binária (para análise experimental). */
     public long steps = 0;
 
+    /** Pré-processamento O(n): constrói as listas de posições. */
     public TrendIndex(String[] S) {
         Map<String, List<Integer>> tmp = new HashMap<>();
         for (int i = 0; i < S.length; i++) {
@@ -25,19 +28,20 @@ public class TrendIndex {
         }
     }
 
-
+    /** Consulta O(m·log n): S_line é subsequência de S? */
     public boolean hasTrend(String[] S_line) {
-        int last = -1;
+        int last = -1; // posição em S do último evento casado
         for (String ev : S_line) {
             int[] pos = positions.get(ev);
-            if (pos == null) return false;
-            int k = firstGreater(pos, last);
-            if (k == pos.length) return false;
+            if (pos == null) return false;          // evento nunca ocorre em S
+            int k = firstGreater(pos, last);         // 1ª ocorrência após 'last'
+            if (k == pos.length) return false;       // não há ocorrência depois
             last = pos[k];
         }
         return true;
     }
 
+    /** Menor índice k tal que a[k] > x (ou a.length se não existir). */
     private int firstGreater(int[] a, int x) {
         int lo = 0, hi = a.length;
         while (lo < hi) {
